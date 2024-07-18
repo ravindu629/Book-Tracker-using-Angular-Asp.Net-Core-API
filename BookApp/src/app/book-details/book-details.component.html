@@ -1,0 +1,31 @@
+<div class="bg-body-secondary text-center py-4 rounded-2">
+  <h1 class="dispay-6 fw-bold">BookTrack</h1>
+</div>
+<div class="row mt-5">
+  <div class="col-6">
+    <app-book-details-form />
+  </div>
+  <div class="col-6">
+    <h3 class="dispay-6 fw-bold text-center">All Books Details</h3>
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start mb-2 border px-4 py-3 rounded-3"
+        *ngFor="let bd of service.list"
+      >
+        <div class="flex-grow-1 mouse-hover" (click)="populateForm(bd)">
+          <div class="fw-bold">{{ bd.bookId }}</div>
+          <div class="fw-bold">{{ bd.title }}</div>
+          <div class="fw-bold">{{ bd.author }}</div>
+          <div>{{ bd.isbn }}</div>
+          <div class="fw-bold">{{ bd.publicationDate }}</div>
+        </div>
+        <span class="text-secondary">
+          <i
+            class="fa-solid fa-trash-can fa-lg mouse-hover"
+            (click)="onDelete(bd.bookId)"
+          ></i>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
